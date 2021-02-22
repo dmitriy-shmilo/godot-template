@@ -1,0 +1,116 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://settings_screen/settings_screen.gd" type="Script" id=1]
+[ext_resource path="res://ui/cancel_shortcut.tres" type="ShortCut" id=2]
+[ext_resource path="res://ui/default_theme.tres" type="Theme" id=3]
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+margin_right = 824.0
+margin_bottom = 14.0
+text = "Settings"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 824.0
+margin_bottom = 376.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 824.0
+margin_bottom = 358.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 824.0
+margin_bottom = 16.0
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/MasterVolume"]
+margin_right = 205.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Master Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/ScrollContainer/VBoxContainer/MasterVolume"]
+margin_left = 209.0
+margin_right = 824.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 824.0
+margin_bottom = 36.0
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/MusicVolume"]
+margin_right = 205.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Music Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/ScrollContainer/VBoxContainer/MusicVolume"]
+margin_left = 209.0
+margin_right = 824.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="SfxVolume" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 824.0
+margin_bottom = 56.0
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/SfxVolume"]
+margin_right = 205.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "SFX Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/ScrollContainer/VBoxContainer/SfxVolume"]
+margin_left = 209.0
+margin_right = 824.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+margin_left = 391.0
+margin_top = 380.0
+margin_right = 433.0
+margin_bottom = 400.0
+size_flags_horizontal = 4
+shortcut = ExtResource( 2 )
+text = "Back"
+[connection signal="value_changed" from="VBoxContainer/ScrollContainer/VBoxContainer/MasterVolume/VolumeSlider" to="." method="_on_MasterVolumeSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/ScrollContainer/VBoxContainer/MusicVolume/VolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/ScrollContainer/VBoxContainer/SfxVolume/VolumeSlider" to="." method="_on_SfxVolumeSlider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
