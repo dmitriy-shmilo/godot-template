@@ -102,6 +102,25 @@ margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
+[node name="SpeechVolume" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 824.0
+margin_bottom = 76.0
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/SpeechVolume"]
+margin_right = 205.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Speech Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/ScrollContainer/VBoxContainer/SpeechVolume"]
+margin_left = 209.0
+margin_right = 824.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 margin_left = 391.0
 margin_top = 380.0
@@ -113,4 +132,5 @@ text = "Back"
 [connection signal="value_changed" from="VBoxContainer/ScrollContainer/VBoxContainer/MasterVolume/VolumeSlider" to="." method="_on_MasterVolumeSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/ScrollContainer/VBoxContainer/MusicVolume/VolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/ScrollContainer/VBoxContainer/SfxVolume/VolumeSlider" to="." method="_on_SfxVolumeSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/ScrollContainer/VBoxContainer/SpeechVolume/VolumeSlider" to="." method="_on_SpeechVolumeSlider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
