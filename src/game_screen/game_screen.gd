@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var _pause_container: VBoxContainer = $PauseContainer
+onready var _pause_container: ColorRect = $Gui/PauseContainer
 
 func _ready():
 	pass
@@ -15,6 +15,8 @@ func _unhandled_input(event):
 
 
 func _on_QuitButton_pressed():
+	_pause_container.visible = false
+	get_tree().paused = false
 	get_tree().change_scene("res://title_screen/title_screen.tscn")
 
 
