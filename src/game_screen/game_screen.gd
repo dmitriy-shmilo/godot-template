@@ -8,7 +8,7 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if event.is_action("pause"):
+	if event.is_action("system_pause"):
 		get_tree().paused = true
 		_pause_container.visible = true
 		
